@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "The spark that will light your projects",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/chispa-hub"
+    "registry": "https://npm.pkg.github.com/ChispaHub"
   },
   "scripts": {
     "rollup": "rollup -c"
