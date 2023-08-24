@@ -1,7 +1,10 @@
 {
-  "name": "spark",
+  "name": "@chispa-hub/spark",
   "version": "0.0.1",
   "description": "The spark that will light your projects",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/chispa-hub"
+  },
   "scripts": {
     "rollup": "rollup -c"
   },
