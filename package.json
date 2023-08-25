@@ -1,9 +1,9 @@
 {
-  "name": "@chispa-hub/spark",
-  "version": "0.0.1",
+  "name": "@chispahub/spark",
+  "version": "0.0.4",
   "description": "The spark that will light your projects",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ChispaHub"
+    "registry": "https://npm.pkg.github.com/chispahub"
   },
   "scripts": {
     "rollup": "rollup -c"
@@ -13,13 +13,22 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-terser": "^0.4.3",
     "@rollup/plugin-typescript": "^8.3.0",
+    "@types/lodash": "^4.14.197",
     "@types/react": "^17.0.34",
-    "react": "^17.0.2",
+    "gsap": "^3.12.2",
+    "lodash": "^4.17.21",
+    "node-sass": "^9.0.0",
     "rollup": "^2.60.0",
     "rollup-plugin-dts": "^4.0.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.6.2",
     "typescript": "^4.4.4"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
