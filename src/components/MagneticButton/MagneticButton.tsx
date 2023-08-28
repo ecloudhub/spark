@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
-import { ButtonProps } from "./MagneticButton.types";
 import gsap from "gsap";
 import "./MagneticButton.scss";
+import { MagneticButton as MagneticButtonProps } from "../../types/button";
+import Button from "../Button/Button";
 
 const MagneticButton = ({
-  as: Tag = "button",
   children,
   movement = 30,
   ...props
-}: ButtonProps) => {
+}: MagneticButtonProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -48,10 +48,7 @@ const MagneticButton = ({
       onMouseMove={magnetize}
       onMouseOut={demagnetize}
     >
-      {/* @ts-ignore */}
-      <Tag className="spark-magnetic__button" ref={buttonRef} {...props}>
-        {children}
-      </Tag>
+      <Button ref={buttonRef} {...props}>{children}</Button>
     </div>
   );
 };

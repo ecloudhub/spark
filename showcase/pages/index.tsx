@@ -1,3 +1,4 @@
+import { Button } from "../../dist/esm/";
 import { MagneticButton } from "../../dist/esm/";
 
 export default function Home() {
@@ -5,7 +6,10 @@ export default function Home() {
     <main>
       <section className="section">
         <h1>Buttons</h1>
-        <MagneticButton>Magnetic Button</MagneticButton>
+        <div className="section__stack">
+          <Button>Button</Button>
+          <MagneticButton>Magnetic Button</MagneticButton>
+        </div>
       </section>
     </main>
   );

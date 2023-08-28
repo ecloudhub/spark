@@ -1,24 +1,4 @@
 .spark-magnetic {
   display: inline-block;
   position: relative;
-
-  &__button {
-    background: transparent;
-    border: 1px solid black;
-    border-radius: 2rem;
-    color: black;
-    cursor: pointer;
-    display: block;
-    font-size: 1.2rem;
-    font-weight: 500;
-    line-height: 1;
-    padding: 1rem 2rem;
-    text-decoration: none;
-    transition: 0.3s color, 0.3s background-color;
-
-    &:hover {
-      background-color: black;
-      color: white;
-    }
-  }
 }
