@@ -5,7 +5,11 @@ import { TextReveal as TextRevealProps } from "../../types/text";
 import SplitType from "split-type";
 import "./TextReveal.scss";
 
-export default function TextReveal({ children }: TextRevealProps) {
+export default function TextReveal({
+  children,
+  duration = 3,
+  start = "top 90%",
+}: TextRevealProps) {
   // Rrgister scroll trigger plugin
   gsap.registerPlugin(ScrollTrigger);
 
@@ -27,25 +31,25 @@ export default function TextReveal({ children }: TextRevealProps) {
     ScrollTrigger.create({
       // main scroll trigger
       trigger: ref.current,
-      start: "top center",
-      animation: textTimeline,
+      start: start,
+      animation: textTimeline
     });
 
     if (lines) {
       lines.forEach((line) => {
-        const wrapper = document.createElement('div');
+        const wrapper = document.createElement("div");
 
-        wrapper.classList.add('text-reveal__container');
+        wrapper.classList.add("text-reveal__container");
         wrapper.append(line);
 
         ref?.current?.append(wrapper);
 
-        line.classList.add('text-reveal__content');
+        line.classList.add("text-reveal__content");
 
         textTimeline.to(
           line,
           {
-            duration: 3,
+            duration: duration,
             y: 0,
             rotate: 0,
             ease: "expo.out",
