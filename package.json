@@ -24,6 +24,7 @@
     "rollup-plugin-dts": "^4.0.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.2",
+    "split-type": "^0.3.3",
     "tslib": "^2.6.2",
     "typescript": "^4.4.4"
   },

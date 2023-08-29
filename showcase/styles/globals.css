@@ -54,6 +54,7 @@ body {
 
 h1 {
   font-size: 2rem;
+	font-weight: 500;
   margin-bottom: 2rem;
 }
 
@@ -66,4 +67,16 @@ h1 {
 .section__stack {
 	display: flex;
 	gap: 1rem;
+}
+
+.section--reveal h2 {
+	font-weight: 300;
+	font-size: 2rem;
+	padding: 0.5rem 0;
+}
+
+.section--reveal p {
+	font-weight: 300;
+	font-size: 1.5rem;
+	padding: 0.5rem 0;
 }

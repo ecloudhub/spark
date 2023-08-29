@@ -1,0 +1,10 @@
+.text-reveal {
+  &__container {
+    overflow: hidden;
+  }
+
+  &__content {
+    transform: translate(0, 100%) rotate(10deg);
+    transform-origin: left;
+  }
+}
