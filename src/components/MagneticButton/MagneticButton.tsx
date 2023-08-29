@@ -18,8 +18,8 @@ const MagneticButton = forwardRef<
 
     if (!container) return;
 
-    let relX = e.pageX - window.scrollX - container?.offsetLeft;
-    let relY = e.pageY - window.scrollY - container?.offsetTop;
+    let relX = e.pageX - container?.offsetLeft;
+    let relY = e.pageY - container?.offsetTop;
 
     gsap.to(buttonRef.current, {
       duration: 0.3,
