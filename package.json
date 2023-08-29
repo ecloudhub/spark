@@ -1,6 +1,6 @@
 {
   "name": "@chispahub/spark",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "The spark that will light your projects",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/chispahub"

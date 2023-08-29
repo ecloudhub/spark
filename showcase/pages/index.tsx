@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button, MagneticButton, TextReveal } from "../../dist/esm/";
 
 export default function Home() {

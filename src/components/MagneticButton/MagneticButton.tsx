@@ -1,14 +1,15 @@
-import React, { useRef } from "react";
+import React, { forwardRef, useRef } from "react";
 import gsap from "gsap";
 import "./MagneticButton.scss";
 import { MagneticButton as MagneticButtonProps } from "../../types/button";
 import Button from "../Button/Button";
 
-const MagneticButton = ({
-  children,
-  movement = 30,
-  ...props
-}: MagneticButtonProps) => {
+const MagneticButton = forwardRef<
+  HTMLAnchorElement | HTMLButtonElement,
+  MagneticButtonProps
+>(function ForwardedMagneticButton(props, ref) {
+  const { children, movement = 30, ...rest } = props;
+
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -48,9 +49,11 @@ const MagneticButton = ({
       onMouseMove={magnetize}
       onMouseOut={demagnetize}
     >
-      <Button ref={buttonRef as any} {...props}>{children}</Button>
+      <Button ref={buttonRef as any} {...rest}>
+        {children}
+      </Button>
     </div>
   );
-};
+});
 
 export default MagneticButton;
