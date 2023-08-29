@@ -48,7 +48,7 @@ const MagneticButton = ({
       onMouseMove={magnetize}
       onMouseOut={demagnetize}
     >
-      <Button ref={buttonRef} {...props}>{children}</Button>
+      <Button ref={buttonRef as any} {...props}>{children}</Button>
     </div>
   );
 };

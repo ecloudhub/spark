@@ -9,7 +9,7 @@ export type Button = ButtonPropsBasics &
     | (JSX.IntrinsicElements["button"] & { as: "button" })
   );
 
-
-export interface MagneticButton extends ButtonPropsBasics {
-  movement?: number;
-}
+export type MagneticButton = ButtonPropsBasics & { movement?: number } & (
+    | (JSX.IntrinsicElements["a"] & { as?: "a" })
+    | (JSX.IntrinsicElements["button"] & { as: "button" })
+  );
