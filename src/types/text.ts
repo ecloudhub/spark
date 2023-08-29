@@ -11,4 +11,5 @@ export interface TextReveal {
   children: ReactNode;
   duration?: number | string;
   start?: string | number | StartEndFunc;
+  delay?: number;
 }

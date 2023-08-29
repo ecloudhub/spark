@@ -9,6 +9,7 @@ export default function TextReveal({
   children,
   duration = 3,
   start = "top 90%",
+  delay = 0
 }: TextRevealProps) {
   // Rrgister scroll trigger plugin
   gsap.registerPlugin(ScrollTrigger);
@@ -53,6 +54,7 @@ export default function TextReveal({
             y: 0,
             rotate: 0,
             ease: "expo.out",
+            delay: delay
           },
           ">-90%"
         );
