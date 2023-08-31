@@ -50,6 +50,10 @@ export default function TextReader({
   useIsomorphicLayoutEffect(() => {
     let ctx: any = null;
 
+    if (textRef.current) {
+      textRef.current.style.opacity = "1";
+    }
+
     if (isDesktop || responsive) {
       splitLines();
 
