@@ -61,7 +61,7 @@ h1 {
 .section {
   border: 1px solid #999;
   margin: 1rem;
-  padding: 3rem 2rem;  
+  padding: 3rem 2rem;
 }
 
 .section__stack {
@@ -79,4 +79,34 @@ h1 {
 	font-weight: 300;
 	font-size: 1.5rem;
 	padding: 0.5rem 0;
+}
+
+.section--reader {
+	border: 0 none;
+	height: calc(100vh - 126px);
+	margin: 0;
+	padding: 0;
+}
+
+.section--reader.py {
+	padding: 8rem 0;
+}
+
+.section--reader__content {
+	border: 1px solid #999;
+	margin: 0 1rem;
+  padding: 3rem 2rem;
+	height: 100%;
+}
+
+.section--reader p {
+	font-size: 3rem;
+	line-height: 4rem;
+}
+
+@media (max-width: 992px) {
+	.section--reader p {
+		font-size: 1.2rem;
+		line-height: 1.8rem;
+	}
 }

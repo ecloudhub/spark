@@ -1,0 +1,33 @@
+@import '../../functions';
+
+.text-reader {
+  overflow: hidden;
+
+  .word {
+    opacity: 0;
+  }
+
+  .line-mask {
+    display: block;
+    background-color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  &.showOnMobile {
+    .word {
+      @include mobile {
+        opacity: 1;
+      }
+    }
+
+    .line-mask {
+      @include mobile {
+        display: none;
+      }
+    }
+  }
+}
