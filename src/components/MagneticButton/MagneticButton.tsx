@@ -8,7 +8,7 @@ const MagneticButton = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   MagneticButtonProps
 >(function ForwardedMagneticButton(props, ref) {
-  const { children, movement = 30, ...rest } = props;
+  const { children, button, movement = 30, ...rest } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -42,6 +42,14 @@ const MagneticButton = forwardRef<
     });
   };
 
+  const clonedButton = button ? (
+    React.cloneElement(button, { ref: buttonRef, ...rest })
+  ) : (
+    <Button ref={buttonRef as any} {...rest}>
+      {children}
+    </Button>
+  );
+
   return (
     <div
       className="spark-magnetic"
@@ -49,9 +57,7 @@ const MagneticButton = forwardRef<
       onMouseMove={magnetize}
       onMouseOut={demagnetize}
     >
-      <Button ref={buttonRef as any} {...rest}>
-        {children}
-      </Button>
+      {clonedButton}
     </div>
   );
 });

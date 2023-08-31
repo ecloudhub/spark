@@ -16,7 +16,8 @@ export default function Home() {
         <h1>Buttons</h1>
         <div className="section__stack">
           <Button>Button</Button>
-          <MagneticButton>Magnetic Button</MagneticButton>
+          {/* <MagneticButton button={<button style={{fontSize: '1rem', padding: '1rem' }}>un boton</button>} /> */}
+          <MagneticButton>Button</MagneticButton>
         </div>
       </section>
 

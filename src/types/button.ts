@@ -9,7 +9,10 @@ export type Button = ButtonPropsBasics &
     | (JSX.IntrinsicElements["button"] & { as: "button" })
   );
 
-export type MagneticButton = ButtonPropsBasics & { movement?: number } & (
+export type MagneticButton = ButtonPropsBasics & {
+  button?: React.ReactElement;
+  movement?: number;  
+} & (
     | (JSX.IntrinsicElements["a"] & { as?: "a" })
     | (JSX.IntrinsicElements["button"] & { as: "button" })
   );
