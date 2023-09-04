@@ -38,4 +38,3 @@ replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first ste
 This toolkit is curated and maintained by the Chispa Lab team:
 
 - Julian Ciccioli ([juciccio](https://www.linkedin.com/in/juciccio/)) – [Chispa Lab](https://chispalab.com)
-- Joaquin Alonso ([alonsojoaquin](https://www.linkedin.com/in/alonsojoaquin)) – [Chispa Lab](https://chispalab.com)
