@@ -19,6 +19,8 @@ replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first ste
 
 3. Ask [Ju](https://github.com/juciccio) to give you access to the pacakge.
 
+<br />
+
 ## Folder Structure
 
 - **/src:** @ChispaHub/spark's raw code.
