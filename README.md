@@ -16,6 +16,7 @@ registry=https://registry.npmjs.org/
 //npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
 ```
 replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first step.
+
 3. Ask [Ju](https://github.com/juciccio) to give you access to the pacakge.
 
 ## Folder Structure
