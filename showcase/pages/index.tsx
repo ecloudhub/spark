@@ -4,11 +4,15 @@ import {
   MagneticButton,
   TextReveal,
   TextReader,
+  HPin,
 } from "../../dist/esm/";
 
 export default function Home() {
   const textTriggerRef = useRef<HTMLDivElement>(null);
   const textWithMaskTriggerRef = useRef<HTMLDivElement>(null);
+
+  const hpinContainer = useRef<HTMLDivElement>(null);
+  const hpinSlider = useRef<HTMLDivElement>(null);
 
   return (
     <main>
@@ -53,7 +57,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section--reader py" ref={textWithMaskTriggerRef}>
+      <section
+        className="section section--reader py"
+        ref={textWithMaskTriggerRef}
+      >
         <div className="section--reader__content">
           <h1>Text Reader with mask</h1>
           <TextReader
@@ -68,6 +75,20 @@ export default function Home() {
             withMask
           />
         </div>
+      </section>
+
+      <section className="section section--pin" ref={hpinContainer}>
+        <h1>Horizontal pin</h1>
+        <HPin triggerRef={hpinContainer} start="top top" sideSpacing="1rem">
+          <div className="card" />
+          <div className="card" />
+          <div className="card" />
+          <div className="card" />
+          <div className="card" />
+          <div className="card" />
+          <div className="card" />
+          <div className="card" />
+        </HPin>
       </section>
 
       <div style={{ height: "300px" }} />

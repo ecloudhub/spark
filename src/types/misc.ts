@@ -1,0 +1,1 @@
+export type StartEndFunc = (self: ScrollTrigger) => string | number;

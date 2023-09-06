@@ -1,6 +1,5 @@
 import { Dispatch, ReactNode, RefObject, SetStateAction } from "react";
-
-type StartEndFunc = (self: ScrollTrigger) => string | number;
+import { StartEndFunc } from "./misc";
 
 export interface TextReveal {
   children: ReactNode;
