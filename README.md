@@ -38,7 +38,7 @@ Most of the components work with ```ScrollTrigger``` from ```GSAP``` so check [t
 
 ### Button
 Just a default button
-```
+```tsx
 type Button = {
   children?: React.ReactNode;
   className?: string;
@@ -49,7 +49,7 @@ type Button = {
 
 ### Magnetic Button
 Just a default button
-```
+```tsx
 type Button = {
   children?: React.ReactNode;
   className?: string;
@@ -64,7 +64,7 @@ type Button = {
 
 ### Text Reader
 Display text gradually as user scroll.
-```
+```tsx
 interface TextReader {
   // The text you want to display gradually.
   text: string;
@@ -83,7 +83,7 @@ interface TextReader {
 
 ### Text Reveal
 Display text with a fancy animation when is inside the current viewport.
-```
+```tsx
 interface TextReveal {
   // Headings, paragraph tags or just text
   children: ReactNode;
@@ -98,7 +98,7 @@ interface TextReveal {
 
 ### HPin
 Pin a section and move content horizontally.
-```
+```tsx
 interface HPin {
   // Each child element will be put in row.
   children: React.ReactNode;
