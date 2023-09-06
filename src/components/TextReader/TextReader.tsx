@@ -11,7 +11,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function TextReader({
   text,
-  triggerRef,
+  pinRef,
   start = "top 30%",
   responsive = true,
   withMask = false,
@@ -96,7 +96,7 @@ export default function TextReader({
           ScrollTrigger.create({
             trigger: textRef.current,
             start: start,
-            pin: triggerRef.current ? triggerRef.current : true,
+            pin: pinRef.current ? pinRef.current : true,
             scrub: 1,
             animation: timeline,
             invalidateOnRefresh: true,
@@ -119,7 +119,7 @@ export default function TextReader({
         ctx.revert();
       }
     };
-  }, [isDesktop, triggerRef.current, windowWidth, windowHeight]);
+  }, [isDesktop, pinRef.current, windowWidth, windowHeight]);
 
   return (
     <p

@@ -12,7 +12,6 @@ export default function Home() {
   const textWithMaskTriggerRef = useRef<HTMLDivElement>(null);
 
   const hpinContainer = useRef<HTMLDivElement>(null);
-  const hpinSlider = useRef<HTMLDivElement>(null);
 
   return (
     <main>
@@ -51,7 +50,7 @@ export default function Home() {
           ac vehicula eros semper quis. Proin placerat sodales
           dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
           ac vehicula eros semper quis."
-            triggerRef={textTriggerRef}
+            pinRef={textTriggerRef}
             start="top 126px"
           />
         </div>
@@ -70,7 +69,7 @@ export default function Home() {
           ac vehicula eros semper quis. Proin placerat sodales
           dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
           ac vehicula eros semper quis."
-            triggerRef={textWithMaskTriggerRef}
+            pinRef={textWithMaskTriggerRef}
             start="top center"
             withMask
           />
