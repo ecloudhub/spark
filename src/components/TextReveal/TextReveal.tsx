@@ -67,7 +67,7 @@ export default function TextReveal({
   }, [children]);
 
   return (
-    <div className="text-reveal" ref={ref}>
+    <div className="spark-text-reveal" ref={ref}>
       {children}
     </div>
   );

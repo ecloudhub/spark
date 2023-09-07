@@ -61,7 +61,7 @@ export default function HPin({
 
   return (
     <div
-      className="hpin"
+      className="spark-hpin"
       ref={containerRef}
       style={{
         gap: spacing,

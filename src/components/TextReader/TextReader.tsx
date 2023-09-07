@@ -123,7 +123,7 @@ export default function TextReader({
 
   return (
     <p
-      className={`text-reader ${!responsive ? "showOnMobile" : undefined}`}
+      className={`spark-text-reader ${!responsive ? "showOnMobile" : undefined}`}
       ref={textRef}
     >
       {text}
