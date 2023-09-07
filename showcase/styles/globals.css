@@ -61,9 +61,15 @@ h1 {
 .card {
 	background-color: #ccc;
 	display: block;
-	height: 20rem;
-	width: 16rem;
-	min-width: 16rem;
+	height: 24rem;
+	width: 20rem;
+	min-width: 20rem;
+}
+
+.card--lg {
+	height: 35rem;
+	width: 32rem;
+	min-width: auto;
 }
 
 .section {  
@@ -118,13 +124,33 @@ h1 {
 	overflow: hidden;
 }
 
+.section--vpin p {
+	line-height: 1.5;
+	max-width: 34rem;
+}
+
 @media (max-width: 992px) {
+	.card--lg {
+		height: 20rem;
+		width: 100%;
+	}
+
+	.section {
+		margin: 0;
+		padding: 3rem 1rem;
+	}
+
+	.section--reader {
+		padding: 3rem 0;
+	}
+
 	.section--reader p {
 		font-size: 1.2rem;
 		line-height: 1.8rem;
 	}
 
 	.section--pin {
+		height: auto;
 		padding: 3rem 1rem;
 	}
 }

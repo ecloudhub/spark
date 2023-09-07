@@ -18,6 +18,7 @@ registry=https://registry.npmjs.org/
 replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first step.
 
 3. Ask [Ju](https://github.com/juciccio) to give you access to the pacakge.
+4. Run ```npm i @chispahub/spark```
 
 <br />
 
@@ -34,7 +35,7 @@ replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first ste
 <br />
 
 ## Components
-Most of the components work with ```ScrollTrigger``` from ```GSAP``` so check [their docs](https://greensock.com/docs/v3/Plugins/ScrollTrigger/) for detailed info.
+Most of the components work with ```ScrollTrigger``` from ```GSAP``` so check their [docs](https://greensock.com/docs/v3/Plugins/ScrollTrigger/) for detailed info.
 
 ### Button
 Just a default button
@@ -48,9 +49,9 @@ type Button = {
 ```
 
 ### Magnetic Button
-Just a default button
+When the cursor is near the button this one will follow it a little.
 ```tsx
-type Button = {
+type MagneticButton = {
   children?: React.ReactNode;
   className?: string;
   // Choose between button and a elements.
@@ -116,6 +117,23 @@ interface HPin {
   startPos?: string | number;
   // The space left between the last element and the end of the viewport horizontally.
   endPos?: number;
+}
+```
+
+### VPin
+Pin a section and move content vertically.
+```tsx
+interface VPin {
+  // this will be the content at the left such as a title with a text.
+  children: React.ReactNode;
+  // Each item will be put vertically in a column.
+  items: React.ReactElement;
+  // The space between each item. Default: "1rem".
+  itemsSpacing?: string;
+  // The minimum space between the children elements and the items. Default: "2rem".
+  contentGap?: string;
+  // The space between the pinned content and the top of the viewport. Default: 6.25rem;
+  topGap?: string;
 }
 ```
 

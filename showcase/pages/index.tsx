@@ -5,6 +5,7 @@ import {
   TextReveal,
   TextReader,
   HPin,
+  VPin,
 } from "../../dist/esm/";
 
 export default function Home() {
@@ -90,7 +91,29 @@ export default function Home() {
         </HPin>
       </section>
 
-      <div style={{ height: "300px" }} />
+      <section className="section section--vpin">
+        <div className="section--vpin__container">
+          <VPin
+            items={
+              <>
+                <div className="card card--lg" />
+                <div className="card card--lg" />
+                <div className="card card--lg" />
+                <div className="card card--lg" />
+                <div className="card card--lg" />
+              </>
+            }
+          >
+            <h1>Vertical Pin</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse quis leo lectus. Integer vestibulum eros vitae
+              vulputate pellentesque. Morbi ac libero imperdiet, venenatis dolor
+              eget, tempor augue.
+            </p>
+          </VPin>
+        </div>
+      </section>
     </main>
   );
 }

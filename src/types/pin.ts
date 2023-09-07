@@ -20,3 +20,17 @@ export interface HPin {
   // The space left between the last element and the end of the viewport horizontally. Default: 1.1.
   endPos?: number;
 };
+
+// Pin section and move content vertically
+export interface VPin {
+  // this will be the content at the left such as a title with a text.
+  children: React.ReactNode;
+  // Each item will be put vertically in a column.
+  items: React.ReactElement;
+  // The space between each item. Default: "1rem".
+  itemsSpacing?: string;
+  // The minimum space between the children elements and the items. Default: "2rem".
+  contentGap?: string;
+  // The space between the pinned content and the top of the viewport. Default: 6.25rem;
+  topGap?: string;
+}
