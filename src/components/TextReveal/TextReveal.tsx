@@ -40,12 +40,12 @@ export default function TextReveal({
       lines.forEach((line) => {
         const wrapper = document.createElement("div");
 
-        wrapper.classList.add("text-reveal__container");
+        wrapper.classList.add("spark-text-reveal__container");
         wrapper.append(line);
 
         ref?.current?.append(wrapper);
 
-        line.classList.add("text-reveal__content");
+        line.classList.add("spark-text-reveal__content");
 
         textTimeline.to(
           line,
