@@ -33,50 +33,54 @@ const ElasticButton = forwardRef<
     <Component
       ref={ref as any}
       className={`spark-elastic ${className}`}
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
       {...(rest as any)}
     >
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={isHover ? "hover" : "idle"}
-          initial={{ x: 20 }}
-          animate={{ x: 0 }}
-          transition={{
-            type: "spring",
-            damping: 7,
-            stiffness: 300,
-            restDelta: 0.1,
-          }}
-        >
-          {isHover && <Icon />}
-        </motion.div>
-      </AnimatePresence>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={isHover ? "hover" : "idle"}
-          initial={{ x: 20 }}
-          animate={{ x: 0 }}
-          transition={{ duration: 0.3, ease: "circOut" }}
-        >
-          {clonedButton}
-        </motion.div>
-      </AnimatePresence>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={isHover ? "hover" : "idle"}
-          initial={{ x: 10 }}
-          animate={{ x: 0 }}
-          transition={{
-            type: "spring",
-            damping: 7,
-            stiffness: 300,
-            restDelta: 0.1,
-          }}
-        >
-          {!isHover && <Icon />}
-        </motion.div>
-      </AnimatePresence>
+      <div
+        className="spark-elastic__stack"
+        onMouseEnter={() => setIsHover(true)}
+        onMouseLeave={() => setIsHover(false)}
+      >
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isHover ? "hover" : "idle"}
+            initial={{ x: 20 }}
+            animate={{ x: 0 }}
+            transition={{
+              type: "spring",
+              damping: 7,
+              stiffness: 300,
+              restDelta: 0.1,
+            }}
+          >
+            {isHover && <Icon />}
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isHover ? "hover" : "idle"}
+            initial={{ x: 20 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.3, ease: "circOut" }}
+          >
+            {clonedButton}
+          </motion.div>
+        </AnimatePresence>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={isHover ? "hover" : "idle"}
+            initial={{ x: 10 }}
+            animate={{ x: 0 }}
+            transition={{
+              type: "spring",
+              damping: 7,
+              stiffness: 300,
+              restDelta: 0.1,
+            }}
+          >
+            {!isHover && <Icon />}
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </Component>
   );
 });

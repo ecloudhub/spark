@@ -1,12 +1,15 @@
 .spark-elastic {
   background-color: transparent;
   border: 0 none;
-  display: flex;
   margin: 0;
   padding: 0;
 
   > div {
     height: 100%;
+  }
+
+  &__stack {
+    display: flex;
   }
 
   &__button {
