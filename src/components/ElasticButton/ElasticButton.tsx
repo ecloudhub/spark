@@ -24,7 +24,7 @@ const ElasticButton = forwardRef<
   };
 
   const clonedButton = button ? (
-    React.cloneElement(button, { className: "spark-elastic__button" })
+    React.cloneElement(button)
   ) : (
     <div className="spark-elastic__button">{children}</div>
   );
