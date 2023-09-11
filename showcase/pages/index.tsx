@@ -6,6 +6,7 @@ import {
   TextReader,
   HPin,
   VPin,
+  ElasticButton,
 } from "../../dist/esm/";
 
 export default function Home() {
@@ -20,8 +21,8 @@ export default function Home() {
         <h1>Buttons</h1>
         <div className="section__stack">
           <Button>Button</Button>
-          {/* <MagneticButton button={<button style={{fontSize: '1rem', padding: '1rem' }}>un boton</button>} /> */}
-          <MagneticButton>Button</MagneticButton>
+          <MagneticButton>Magnetic</MagneticButton>
+          <ElasticButton>Elastic!</ElasticButton>
         </div>
       </section>
 

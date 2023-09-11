@@ -1,0 +1,32 @@
+.spark-elastic {
+  background-color: transparent;
+  border: 0 none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  > div {
+    height: 100%;
+  }
+
+  &__button {
+    background: transparent;
+    border: 1px solid black;
+    border-radius: 2rem;
+    color: black;
+    cursor: pointer;
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1;
+    padding: 1rem 2rem;
+    text-decoration: none;
+  }
+
+  &__icon {
+    border-radius: 100%;
+    box-shadow: 0 0 0 1px inset black;
+    height: 100%;
+    width: 3.35rem;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@chispahub/spark",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "The spark that will light your projects",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/chispahub"
@@ -17,6 +17,7 @@
     "@rollup/plugin-typescript": "^8.3.0",
     "@types/lodash": "^4.14.197",
     "@types/react": "^17.0.34",
+    "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",
     "lodash": "^4.17.21",
     "node-sass": "^9.0.0",

@@ -8,7 +8,7 @@ const MagneticButton = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   MagneticButtonProps
 >(function ForwardedMagneticButton(props, ref) {
-  const { children, button, movement = 30, ...rest } = props;
+  const { children, className = '', button, movement = 30, ...rest } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -52,7 +52,7 @@ const MagneticButton = forwardRef<
 
   return (
     <div
-      className="spark-magnetic"
+      className={`spark-magnetic ${className}`}
       ref={containerRef}
       onMouseMove={magnetize}
       onMouseOut={demagnetize}

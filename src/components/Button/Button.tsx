@@ -6,7 +6,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
   function ForwardedButton(props, ref) {
     const {
       children,
-      className,
+      className = '',
       as: Component = "button",
       ...rest
     } = props;
@@ -14,7 +14,7 @@ const Button = forwardRef<HTMLAnchorElement | HTMLButtonElement, ButtonProps>(
     return (
       <Component
         ref={ref as any}
-        className="spark-button"
+        className={`spark-button ${className}`}
         {...(rest as any)}
       >
         {children}
