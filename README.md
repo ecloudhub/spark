@@ -63,6 +63,21 @@ type MagneticButton = {
 };
 ```
 
+### Elastic Button
+A button with an "elastic" movement on hover.
+```tsx
+type ElasticButton = {
+  children?: React.ReactNode;
+  className?: string;
+  // Choose between button and a elements.
+  as?: JSX.IntrinsicElements["a"] & { as?: "a" } | JSX.IntrinsicElements["button"] & { as: "button" }
+  // If you want to use another button. Otherwise it will use the Button component look & feel.
+  button?: React.ReactElement;
+  // Custom html. Default: <div class="spark-elastic__icon"></div>.
+  icon?: React.ReactElement;
+};
+```
+
 ### Text Reader
 Display text gradually as user scroll.
 ```tsx
