@@ -13,6 +13,7 @@ export default function HPin({
   triggerRef,
   scrub = 0.3,
   start = "center center",
+  end = "bottom top",
   spacing = "1rem",
   sideSpacing = "0",
   startPos = "20%",
@@ -36,7 +37,7 @@ export default function HPin({
         timeline.fromTo(
           containerRef.current,
           { x: startPos },
-          { x: amountToScroll, duration: 10 }
+          { x: amountToScroll }
         );
 
         ScrollTrigger.create({
@@ -44,6 +45,7 @@ export default function HPin({
             ? triggerRef.current
             : containerRef.current,
           start: start,
+          end: end,
           pin: true,
           scrub: scrub,
           animation: timeline,

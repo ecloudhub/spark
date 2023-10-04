@@ -9,6 +9,8 @@ export interface HPin {
   triggerRef?: RefObject<HTMLDivElement>;
   // String | Number | Function - Determines the starting position of the ScrollTrigger. Default: "center center".
   start?: string | number | StartEndFunc;
+  // String | Number | Function - Determines the ending position of the ScrollTrigger. Default: "bottom top".
+  end?: string | number | StartEndFunc;
   // Boolean | Number - Links the progress of the animation directly to the scrollbar so it acts like a scrubber. Default: 0.3.
   scrub?: boolean | number;
   // Spacing between each child element. Default: "1rem".
