@@ -7,7 +7,10 @@ import {
   HPin,
   VPin,
   ElasticButton,
+  VOverlap,
 } from "../../dist/esm/";
+import { overlapData } from "@/mock";
+import FigureCaption from "@/components/figure-caption";
 
 export default function Home() {
   const textTriggerRef = useRef<HTMLDivElement>(null);
@@ -92,6 +95,18 @@ export default function Home() {
         </HPin>
       </section>
 
+      <section className="section section--voverlap">
+        <div className="section--voverlap__container">
+          <VOverlap
+            images={overlapData.map((o) => o.image)}
+            content={overlapData.map((item, index) => (
+              <FigureCaption {...item} key={index} />
+            ))}
+            contentImgClass="figure-caption-img"
+          />
+        </div>
+      </section>
+
       <section className="section section--vpin">
         <div className="section--vpin__container">
           <VPin
@@ -114,7 +129,7 @@ export default function Home() {
             </p>
           </VPin>
         </div>
-      </section>
+      </section>      
     </main>
   );
 }

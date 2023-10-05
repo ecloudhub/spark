@@ -8,17 +8,19 @@ Spark is our React component library.
 
 ## Installation
 
-1. Create a personal access token [here](https://github.com/settings/tokens) (with ```repo``` and ```write:packages``` permissions).
-2. Create or edit -if you already have it- the file ```.npmrc``` in your home directory like: ```~/.npmrc``` and add the following information: 
+1. Create a personal access token [here](https://github.com/settings/tokens) (with `repo` and `write:packages` permissions).
+2. Create or edit -if you already have it- the file `.npmrc` in your home directory like: `~/.npmrc` and add the following information:
+
 ```
 registry=https://registry.npmjs.org/
 @chispahub:registry=https://npm.pkg.github.com/
 //npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
 ```
-replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first step.
+
+replacing `YOUR_AUTH_TOKEN` with the token you just created in the first step.
 
 3. Ask [Ju](https://github.com/juciccio) to give you access to the pacakge.
-4. Run ```npm i @chispahub/spark```
+4. Run `npm i @chispahub/spark`
 
 <br />
 
@@ -35,42 +37,55 @@ replacing ```YOUR_AUTH_TOKEN``` with the token you just created in the first ste
 <br />
 
 ## Components
-Most of the components work with ```ScrollTrigger``` from ```GSAP``` so check their [docs](https://greensock.com/docs/v3/Plugins/ScrollTrigger/) for detailed info.
+
+Most of the components work with `ScrollTrigger` from `GSAP` so check their [docs](https://greensock.com/docs/v3/Plugins/ScrollTrigger/) for detailed info.
 
 ### Button
+
 Just a default button
+
 ```tsx
 type Button = {
   children?: React.ReactNode;
   className?: string;
   // Choose between button and a element. Default: button.
-  as?: JSX.IntrinsicElements["a"] & { as?: "a" } | JSX.IntrinsicElements["button"] & { as: "button" }
+  as?:
+    | (JSX.IntrinsicElements["a"] & { as?: "a" })
+    | (JSX.IntrinsicElements["button"] & { as: "button" });
 };
 ```
 
 ### Magnetic Button
+
 When the cursor is near the button this one will follow it a little.
+
 ```tsx
 type MagneticButton = {
   children?: React.ReactNode;
   className?: string;
   // Choose between button and a elements.
-  as?: JSX.IntrinsicElements["a"] & { as?: "a" } | JSX.IntrinsicElements["button"] & { as: "button" }
+  as?:
+    | (JSX.IntrinsicElements["a"] & { as?: "a" })
+    | (JSX.IntrinsicElements["button"] & { as: "button" });
   // If you want to use another button. Otherwise it will use the Button component.
   button?: React.ReactElement;
   // To determine how much it will move. Default: 30.
-  movement?: number;  
+  movement?: number;
 };
 ```
 
 ### Elastic Button
+
 A button with an "elastic" movement on hover.
+
 ```tsx
 type ElasticButton = {
   children?: React.ReactNode;
   className?: string;
   // Choose between button and a elements.
-  as?: JSX.IntrinsicElements["a"] & { as?: "a" } | JSX.IntrinsicElements["button"] & { as: "button" }
+  as?:
+    | (JSX.IntrinsicElements["a"] & { as?: "a" })
+    | (JSX.IntrinsicElements["button"] & { as: "button" });
   // If you want to use another button. Otherwise it will use the Button component look & feel.
   button?: React.ReactElement;
   // Custom html. Default: <div class="spark-elastic__icon"></div>.
@@ -79,7 +94,9 @@ type ElasticButton = {
 ```
 
 ### Text Reader
+
 Display text gradually as user scroll.
+
 ```tsx
 interface TextReader {
   // The text you want to display gradually.
@@ -98,7 +115,9 @@ interface TextReader {
 ```
 
 ### Text Reveal
+
 Display text with a fancy animation when is inside the current viewport.
+
 ```tsx
 interface TextReveal {
   // Headings, paragraph tags or just text
@@ -113,7 +132,9 @@ interface TextReveal {
 ```
 
 ### HPin
+
 Pin a section and move content horizontally.
+
 ```tsx
 interface HPin {
   // Each child element will be put in row.
@@ -138,7 +159,9 @@ interface HPin {
 ```
 
 ### VPin
+
 Pin a section and move content vertically.
+
 ```tsx
 interface VPin {
   // this will be the content at the left such as a title with a text.
@@ -151,6 +174,27 @@ interface VPin {
   contentGap?: string;
   // The space between the pinned content and the top of the viewport. Default: 6.25rem;
   topGap?: string;
+}
+```
+
+### VOverlap
+
+Overlap images while scrolling through blocks of content
+
+```tsx
+interface VOverlap {
+  // Array of images to be displayed on the side. Each position must have a object with at least an "url" property.
+  images: Img[];
+  // An array with each element to be displayed on the right.
+  content: React.ReactElement[];
+  // You can change images wrapper styles using the class "spark-voverlap-img-wrapper" or another one by changing this option.
+  imagesWrapperClass?: string;
+  // In order to hide content images on mobile and show them on desktop you can do it by adding the "voverlap-content-img" class to each image or whatever you want changing this option
+  contentImgClass?: string;
+  // String | Number | Function - Determines the starting position of the ScrollTrigger. Default: "top 70%".
+  start?: string | number | StartEndFunc;
+  // Space between each item: the first position is for desktop the other one for mobile.
+  gap?: [number, number];
 }
 ```
 

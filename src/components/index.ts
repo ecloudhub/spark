@@ -5,3 +5,4 @@ export { default as TextReveal } from "./TextReveal";
 export { default as TextReader } from "./TextReader";
 export { default as HPin } from "./HPin";
 export { default as VPin } from "./VPin";
+export { default as VOverlap } from "./VOverlap";

@@ -1,0 +1,60 @@
+@import "../../functions";
+
+.spark-voverlap {
+  display: flex;
+  flex-direction: row;
+  gap: 6.25rem;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__aside {
+    max-width: 31.25rem;
+    position: sticky;
+    top: calc((100% - 21.875rem) / 2);
+    height: 100%;
+    width: 100%;
+  }
+
+  &__img-wrapper {
+    height: 21.875rem;
+  }
+
+  &__img {
+    border-radius: 1.5rem;
+    clip-path: inset(0 0 0 0);
+    object-fit: cover;
+    transition: 0.6s clip-path;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+
+    &.active {
+      clip-path: inset(0 0 100% 0);
+    }
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-top: 7%;
+    padding-bottom: 7%;
+    width: 100%;
+
+    .voverlap-content-item {
+      transition: 0.4s opacity;
+
+      @include desktop {
+        opacity: 0.2;
+      }
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}

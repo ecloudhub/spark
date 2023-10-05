@@ -72,6 +72,25 @@ h1 {
 	min-width: auto;
 }
 
+.figure-caption {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.figure-caption img {
+	width: 100%;
+}
+
+.figure-caption h3 {
+	font-size: 2.5rem;
+}
+
+.figure-caption p {
+	font-size: 1.2rem;
+	line-height: 2rem;
+}
+
 .section {  
   margin: 1rem;
   padding: 3rem 2rem;
@@ -129,6 +148,15 @@ h1 {
 	max-width: 34rem;
 }
 
+.section--voverlap {
+	margin-bottom: 4rem;
+}
+
+.section--voverlap .spark-voverlap-img-wrapper {
+	max-width: 800px;
+	height: 500px;
+}
+
 @media (max-width: 992px) {
 	.card--lg {
 		height: 20rem;
@@ -138,6 +166,10 @@ h1 {
 	.section {
 		margin: 0;
 		padding: 3rem 1rem;
+	}
+
+	.section__stack {
+		flex-direction: column;
 	}
 
 	.section--reader {
