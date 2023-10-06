@@ -16,12 +16,13 @@ export default function VOverlap({
   imagesWrapperClass = "spark-voverlap-img-wrapper",
   contentImgClass = "voverlap-content-img",
   start = "top 70%",
-  gap = [288, 80]
+  gap = [288, 80],
 }: VOverlapProps) {
   const overlapRef = useRef<HTMLDivElement>(null);
+  const overlapAsideRef = useRef<HTMLDivElement>(null);
   const [documentHeight, setDocumentHeight] = useState<number>(0);
 
-  const { windowWidth, windowHeight } = useWindowSize();
+  const { windowWidth } = useWindowSize();
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
 
   // Animate on scroll
@@ -29,6 +30,14 @@ export default function VOverlap({
     let ctx: any = null;
 
     if (isDesktop) {
+      // center images wrapper
+      const aside = overlapAsideRef.current;
+
+      if (aside) {
+        aside.style.top = `calc((100% - ${aside.clientHeight}px) / 2)`;
+      }
+
+      // animation
       ctx = gsap.context(() => {
         const docuElement = document.documentElement;
 
@@ -94,9 +103,11 @@ export default function VOverlap({
   return (
     <div className="spark-voverlap" ref={overlapRef}>
       {isDesktop && (
-        <div className={`spark-voverlap__aside ${imagesWrapperClass}`}>
+        <div className="spark-voverlap__aside" ref={overlapAsideRef}>
           {images.length && (
-            <div className="spark-voverlap__img-wrapper">
+            <div
+              className={`spark-voverlap__img-wrapper ${imagesWrapperClass}`}
+            >
               {images.map((image, index) => (
                 <img
                   className="spark-voverlap__img spark-voverlap-img"
@@ -112,7 +123,10 @@ export default function VOverlap({
       )}
 
       {content && (
-        <div className="spark-voverlap__content" style={{gap: `${isDesktop ? gap[0] : gap[1]}px`}}>
+        <div
+          className="spark-voverlap__content"
+          style={{ gap: `${isDesktop ? gap[0] : gap[1]}px` }}
+        >
           {content.map((item, index) => (
             <div className="voverlap-content-item" key={index}>
               {item}
