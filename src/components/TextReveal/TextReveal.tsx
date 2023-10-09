@@ -1,15 +1,16 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { TextReveal as TextRevealProps } from "../../types/text";
 import SplitType from "split-type";
 import "./TextReveal.scss";
+import { useIsomorphicLayoutEffect } from "../../hooks";
 
 export default function TextReveal({
   children,
   duration = 3,
   start = "top 90%",
-  delay = 0
+  delay = 0,
 }: TextRevealProps) {
   // Rrgister scroll trigger plugin
   gsap.registerPlugin(ScrollTrigger);
@@ -23,7 +24,7 @@ export default function TextReveal({
     });
   };
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     splitLines();
 
     const lines = ref.current?.querySelectorAll(".line");
@@ -33,7 +34,7 @@ export default function TextReveal({
       // main scroll trigger
       trigger: ref.current,
       start: start,
-      animation: textTimeline
+      animation: textTimeline,
     });
 
     if (lines) {
@@ -54,7 +55,7 @@ export default function TextReveal({
             y: 0,
             rotate: 0,
             ease: "expo.out",
-            delay: delay
+            delay: delay,
           },
           ">-90%"
         );

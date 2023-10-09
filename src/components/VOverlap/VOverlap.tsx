@@ -1,12 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import { VOverlap as VOverlapProps } from "../../types/overlap";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { breakpoints } from "../../config/variables";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicEffect";
 import "./VOverlap.scss";
+import {
+  useIsomorphicLayoutEffect,
+  useMediaQuery,
+  useWindowSize,
+} from "../../hooks";
 
 gsap.registerPlugin(ScrollTrigger);
 

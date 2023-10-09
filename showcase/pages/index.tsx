@@ -7,7 +7,7 @@ import {
   HPin,
   VPin,
   ElasticButton,
-  VOverlap,
+  VOverlap
 } from "../../dist/esm/";
 import { overlapData } from "@/mock";
 import FigureCaption from "@/components/figure-caption";

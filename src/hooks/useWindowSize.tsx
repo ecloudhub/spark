@@ -1,6 +1,6 @@
 import { throttle } from "lodash";
 import { useState } from "react";
-import useIsomorphicLayoutEffect from "./useIsomorphicEffect";
+import { useIsomorphicLayoutEffect } from "./useIsomorphicEffect";
 
 export const useWindowSize = () => {
   const [windowWidth, setWindowWidth] = useState<number>(0);

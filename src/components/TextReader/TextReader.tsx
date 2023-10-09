@@ -1,13 +1,15 @@
 import React, { useRef } from "react";
 import { TextReader as TextReaderProps } from "../../types/text";
 import SplitType from "split-type";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 import { breakpoints } from "../../config/variables";
-import { useWindowSize } from "../../hooks/useWindowSize";
-import useIsomorphicLayoutEffect from "../../hooks/useIsomorphicEffect";
 import { gsap } from "gsap";
 import "./TextReader.scss";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import {
+  useIsomorphicLayoutEffect,
+  useMediaQuery,
+  useWindowSize,
+} from "../../hooks";
 
 export default function TextReader({
   text,
@@ -123,7 +125,9 @@ export default function TextReader({
 
   return (
     <p
-      className={`spark-text-reader ${!responsive ? "showOnMobile" : undefined}`}
+      className={`spark-text-reader ${
+        !responsive ? "showOnMobile" : undefined
+      }`}
       ref={textRef}
     >
       {text}
