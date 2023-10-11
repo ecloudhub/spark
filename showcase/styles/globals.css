@@ -101,6 +101,14 @@ h1 {
 	gap: 1rem;
 }
 
+.section__menu {
+	display: flex;
+	gap: 1rem;
+	flex-direction: column;
+	align-items: flex-end;
+	font-size: 1.4rem;
+}
+
 .section--reveal h2 {
 	font-weight: 300;
 	font-size: 2rem;

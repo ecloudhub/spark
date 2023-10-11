@@ -65,7 +65,7 @@ export default function TextReveal({
     return () => {
       ScrollTrigger.killAll();
     };
-  }, [children]);
+  }, []);
 
   return (
     <div className="spark-text-reveal" ref={ref}>

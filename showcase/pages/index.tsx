@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   Button,
   MagneticButton,
@@ -7,7 +7,8 @@ import {
   HPin,
   VPin,
   ElasticButton,
-  VOverlap
+  VOverlap,
+  Menu,
 } from "../../dist/esm/";
 import { overlapData } from "@/mock";
 import FigureCaption from "@/components/figure-caption";
@@ -18,8 +19,38 @@ export default function Home() {
 
   const hpinContainer = useRef<HTMLDivElement>(null);
 
+  const [showMenu, setShowMenu] = useState<boolean>(false);
+
   return (
     <main>
+      <section className="section">
+        <h1>Menu</h1>
+        <div className="section__stack">
+          <Menu
+            isOpen={showMenu}
+            button={
+              <Button onClick={() => setShowMenu(!showMenu)}>
+                {showMenu ? "close" : "open"}
+              </Button>
+            }
+            onClose={setShowMenu}
+            withOverlay
+          >
+            <ul className="section__menu">
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+              <li>Lorem ipsum link</li>
+            </ul>
+          </Menu>
+        </div>
+      </section>
+
       <section className="section">
         <h1>Buttons</h1>
         <div className="section__stack">
@@ -129,7 +160,7 @@ export default function Home() {
             </p>
           </VPin>
         </div>
-      </section>      
+      </section>
     </main>
   );
 }

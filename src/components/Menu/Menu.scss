@@ -1,0 +1,56 @@
+@import '../../functions';
+
+// this is the padding and the negative position of the body
+$space: 2rem;
+
+.spark-menu {
+  position: relative;
+  z-index: 1;
+
+  &.is-open {
+    z-index: 900;
+  }
+
+  &.is-right .spark-menu__body {
+    left: auto;
+    right: calc(#{$space} * -1);
+    transform-origin: right top;
+  }
+
+  &__btn {
+    position: relative;
+    z-index: 3;
+  }
+
+  &__body {
+    border-radius: 2.625rem;
+    background: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(0.4rem);
+    box-sizing: border-box;
+    transform: translateZ(0);
+    transform-origin: left top;
+    overflow: hidden;
+    position: absolute;
+    left: calc(#{$space} * -1);
+    top: calc(#{$space} * -1);
+    padding: 6rem $space $space;
+    width: 30.25rem;
+    z-index: 2;
+
+    @include mobile {
+      left: calc((#{$space} / 4) * -1);
+      right: calc((#{$space} / 4) * -1);
+      width: auto;
+    }
+  }
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    transform: translateZ(0);
+    position: fixed;
+    left: 0;
+    top: 0;
+    inset: 0;
+    z-index: 1;
+  }
+}
