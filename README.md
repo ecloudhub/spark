@@ -225,6 +225,34 @@ interface VOverlap {
 }
 ```
 
+## Hooks
+
+This library also expose some useful hooks:
+
+### useIsomorphicLayoutEffect
+
+A helper hook for scheduling a layout effect with a fallback to a regular effect for environments where layout effects should not be used.
+
+```tsx
+useIsomorphicLayoutEffect(() => {}, []);
+```
+
+### useWindowSize
+
+It returns window width and height. The values are updated on window `change` and `resize` events.
+
+```tsx
+const { windowWidth, windowHeight } = useWindowSize();
+```
+
+### useMediQuery
+
+A React hook that detects whether a media query is true or false.
+
+```tsx
+const isDesktop = useMediaQuery(`(min-width: 992px)`);
+```
+
 ## Authors
 
 This toolkit is curated and maintained by the Chispa Lab team:
