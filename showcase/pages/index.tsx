@@ -29,9 +29,9 @@ export default function Home() {
           <Menu
             isOpen={showMenu}
             button={
-              <Button onClick={() => setShowMenu(!showMenu)}>
+              <MagneticButton onClick={() => setShowMenu(!showMenu)}>
                 {showMenu ? "close" : "open"}
-              </Button>
+              </MagneticButton>
             }
             onClose={setShowMenu}
             withOverlay

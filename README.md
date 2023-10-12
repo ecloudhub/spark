@@ -96,7 +96,7 @@ type MagneticButton = {
     | (JSX.IntrinsicElements["button"] & { as: "button" });
   // If you want to use another button. Otherwise it will use the Button component.
   button?: React.ReactElement;
-  // To determine how much it will move. Default: 30.
+  // To determine how much it will move. Default: 0.5.
   movement?: number;
 };
 ```

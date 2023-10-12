@@ -8,7 +8,7 @@ const MagneticButton = forwardRef<
   HTMLAnchorElement | HTMLButtonElement,
   MagneticButtonProps
 >(function ForwardedMagneticButton(props, ref) {
-  const { children, className = '', button, movement = 30, ...rest } = props;
+  const { children, className = "", button, movement = 0.5, ...rest } = props;
 
   const containerRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
@@ -18,17 +18,15 @@ const MagneticButton = forwardRef<
 
     if (!container) return;
 
-    let relX = e.pageX - container?.offsetLeft;
-    let relY = e.pageY - container?.offsetTop;
+    const dimensions = container.getBoundingClientRect();
+    const relX = e.pageX - dimensions.left;
+    const relY = e.pageY - dimensions.top;
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
     gsap.to(buttonRef.current, {
       duration: 0.3,
-      x:
-        ((relX - container?.clientWidth / 2) / container?.clientWidth) *
-        movement,
-      y:
-        ((relY - container?.clientHeight / 2) / container?.clientHeight) *
-        movement,
+      x: (relX - dimensions.width / 2) * movement,
+      y: (relY - dimensions.height / 2 - scrollTop) * movement,
       ease: "expo.out",
     });
   };

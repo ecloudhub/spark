@@ -24,8 +24,8 @@ export default function Menu({
   return (
     <div
       className={`spark-menu ${
-        alignment === "right" ? "is-right" : undefined
-      } ${isOpen ? "is-open" : undefined} ${menuClass}`}
+        alignment === "right" ? "is-right" : ''
+      } ${isOpen ? "is-open" : ''} ${menuClass}`}
     >
       {clonedButton}
       <AnimatePresence>
