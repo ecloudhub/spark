@@ -30,6 +30,7 @@ export default function VOverlap({
   // Animate on scroll
   useIsomorphicLayoutEffect(() => {
     let ctx: any = null;
+    let resizeObserver: ResizeObserver | null = null;
 
     if (isDesktop) {
       // center images wrapper
@@ -43,7 +44,7 @@ export default function VOverlap({
       ctx = gsap.context(() => {
         const docuElement = document.documentElement;
 
-        const resizeObserver = new ResizeObserver(() => {
+        resizeObserver = new ResizeObserver(() => {
           setDocumentHeight(docuElement.scrollHeight);
         });
         resizeObserver.observe(docuElement);
@@ -81,6 +82,7 @@ export default function VOverlap({
     return () => {
       if (ctx) {
         ctx.revert();
+        resizeObserver?.disconnect();
       }
     };
   }, [isDesktop, windowWidth, documentHeight]);
