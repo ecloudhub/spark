@@ -29,43 +29,42 @@ export default function HPin({
   gsap.registerPlugin(ScrollTrigger);
 
   useIsomorphicLayoutEffect(() => {
-    let ctx: any = null;
+    if (!isDesktop) return;
 
-    if (isDesktop) {
-      const docuElement = document.documentElement;
-      const resizeObserver = new ResizeObserver(() => {
-        setDocumentHeight(docuElement.scrollHeight);
+    const docuElement = document.documentElement;
+    const resizeObserver = new ResizeObserver(() => {
+      setDocumentHeight(docuElement.scrollHeight);
+    });
+    resizeObserver.observe(docuElement);
+
+    const ctx = gsap.context(() => {
+      const timeline = gsap.timeline();
+      const containerWidth = containerRef.current?.scrollWidth ?? "90%";
+      let amountToScroll = windowWidth - Number(containerWidth) * endPos;
+
+      timeline.fromTo(
+        containerRef.current,
+        { x: startPos },
+        { x: amountToScroll }
+      );
+
+      ScrollTrigger.create({
+        trigger: triggerRef?.current
+          ? triggerRef.current
+          : containerRef.current,
+        start: start,
+        end: end,
+        pin: true,
+        scrub: scrub,
+        animation: timeline,
+        invalidateOnRefresh: true,
       });
-      resizeObserver.observe(docuElement);
-
-      ctx = gsap.context(() => {
-        const timeline = gsap.timeline();
-        const containerWidth = containerRef.current?.scrollWidth ?? "90%";
-        let amountToScroll = windowWidth - Number(containerWidth) * endPos;
-
-        timeline.fromTo(
-          containerRef.current,
-          { x: startPos },
-          { x: amountToScroll }
-        );
-
-        ScrollTrigger.create({
-          trigger: triggerRef?.current
-            ? triggerRef.current
-            : containerRef.current,
-          start: start,
-          end: end,
-          pin: true,
-          scrub: scrub,
-          animation: timeline,
-          invalidateOnRefresh: true,
-        });
-      }, containerRef);
-    }
+    }, containerRef);
 
     return () => {
       if (ctx) {
         ctx.revert();
+        resizeObserver.disconnect();
       }
     };
   }, [isDesktop, windowWidth, documentHeight]);
