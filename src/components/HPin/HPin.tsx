@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { HPin as HPinProps } from "../../types/pin";
 import { breakpoints } from "../../config/variables";
 import "./HPin.scss";
@@ -22,8 +22,9 @@ export default function HPin({
   endPos = 1.1,
 }: HPinProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [documentHeight, setDocumentHeight] = useState<number>(0);
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
-  const { windowWidth, windowHeight } = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -31,6 +32,12 @@ export default function HPin({
     let ctx: any = null;
 
     if (isDesktop) {
+      const docuElement = document.documentElement;
+      const resizeObserver = new ResizeObserver(() => {
+        setDocumentHeight(docuElement.scrollHeight);
+      });
+      resizeObserver.observe(docuElement);
+
       ctx = gsap.context(() => {
         const timeline = gsap.timeline();
         const containerWidth = containerRef.current?.scrollWidth ?? "90%";
@@ -61,7 +68,7 @@ export default function HPin({
         ctx.revert();
       }
     };
-  }, [isDesktop, windowWidth, windowHeight]);
+  }, [isDesktop, windowWidth, documentHeight]);
 
   return (
     <div
