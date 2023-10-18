@@ -7,3 +7,4 @@ export { default as HPin } from "./HPin";
 export { default as VPin } from "./VPin";
 export { default as VOverlap } from "./VOverlap";
 export { default as Menu } from "./Menu";
+export { default as Ribbons } from "./Ribbons";

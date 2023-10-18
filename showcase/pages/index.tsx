@@ -9,6 +9,7 @@ import {
   ElasticButton,
   VOverlap,
   Menu,
+  Ribbons,
 } from "../../dist/esm/";
 import { overlapData } from "@/mock";
 import FigureCaption from "@/components/figure-caption";
@@ -58,6 +59,17 @@ export default function Home() {
           <MagneticButton>Magnetic</MagneticButton>
           <ElasticButton>Elastic!</ElasticButton>
         </div>
+      </section>
+
+      <section className="section section--ribbons">
+        <div className="section--ribbons__container">
+          <h1>Ribbons</h1>
+        </div>
+        <Ribbons>
+          <p>
+            <span>🐶</span> Textito
+          </p>
+        </Ribbons>
       </section>
 
       <section className="section section--reveal">

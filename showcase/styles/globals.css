@@ -109,6 +109,30 @@ h1 {
 	font-size: 1.4rem;
 }
 
+.section--ribbons {
+	margin-left: 0;
+	margin-right: 0;
+	padding-left: 0;
+	padding-right: 0;	
+}
+
+.section--ribbons__container {
+	margin: 0 1rem;
+	padding: 0 2rem;
+}
+
+.section--ribbons p {
+	align-items: center;
+	display: flex;
+	font-size: 3rem;
+	margin: 0 1rem;
+}
+
+.section--ribbons span {
+	font-size: 1rem;
+	margin-right: 2rem;
+}
+
 .section--reveal h2 {
 	font-weight: 300;
 	font-size: 2rem;
@@ -174,6 +198,15 @@ h1 {
 	.section {
 		margin: 0;
 		padding: 3rem 1rem;
+	}
+
+	.section--ribbons {
+		padding: 0;
+	}
+
+	.section--ribbons__container {
+		margin: 0;
+		padding: 0 1rem;
 	}
 
 	.section__stack {
