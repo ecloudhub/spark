@@ -43,8 +43,6 @@ export default function TextReader({
     }
   };
 
-  gsap.registerPlugin(ScrollTrigger);
-
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
 
   const { windowWidth, windowHeight } = useWindowSize();
@@ -55,6 +53,8 @@ export default function TextReader({
     if (textRef.current) {
       textRef.current.style.opacity = "1";
     }
+
+    gsap.registerPlugin(ScrollTrigger);
 
     if (isDesktop || responsive) {
       splitLines();

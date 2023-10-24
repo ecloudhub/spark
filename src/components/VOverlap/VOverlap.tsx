@@ -10,8 +10,6 @@ import {
   useWindowSize,
 } from "../../hooks";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function VOverlap({
   images,
   content,
@@ -31,6 +29,8 @@ export default function VOverlap({
   useIsomorphicLayoutEffect(() => {
     let ctx: any = null;
     let resizeObserver: ResizeObserver | null = null;
+
+    gsap.registerPlugin(ScrollTrigger);
 
     if (isDesktop) {
       // center images wrapper

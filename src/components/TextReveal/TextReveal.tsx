@@ -12,9 +12,6 @@ export default function TextReveal({
   start = "top 90%",
   delay = 0,
 }: TextRevealProps) {
-  // Rrgister scroll trigger plugin
-  gsap.registerPlugin(ScrollTrigger);
-
   const ref = useRef<HTMLDivElement>(null);
 
   const splitLines = () => {
@@ -26,6 +23,8 @@ export default function TextReveal({
 
   useIsomorphicLayoutEffect(() => {
     splitLines();
+    
+    gsap.registerPlugin(ScrollTrigger);
 
     const lines = ref.current?.querySelectorAll(".line");
     const textTimeline = gsap.timeline();

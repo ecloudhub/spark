@@ -26,9 +26,9 @@ export default function HPin({
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
   const { windowWidth } = useWindowSize();
 
-  gsap.registerPlugin(ScrollTrigger);
-
   useIsomorphicLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
     if (!isDesktop) return;
 
     const docuElement = document.documentElement;
