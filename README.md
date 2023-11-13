@@ -157,7 +157,7 @@ interface TextReader {
   start?: string | number | StartEndFunc;
   // If true it will animate on both desktop and mobile otherwise it will animate only on desktop. Default: true.
   responsive?: boolean;
-  // Change the animation style. If true the component will not be pinned. Default: false.
+  // Change the animation style. If true the component will not be pinned. Default: true.
   withMask?: boolean;
   // A callback for when the progress has completed.
   onComplete?: Dispatch<SetStateAction<boolean>>;
