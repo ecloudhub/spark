@@ -13,26 +13,26 @@ Spark is our React component library.
 
 ```
 registry=https://registry.npmjs.org/
-@chispahub:registry=https://npm.pkg.github.com/
+@ecloudhub:registry=https://npm.pkg.github.com/
 //npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
 ```
 
 replacing `YOUR_AUTH_TOKEN` with the token you just created in the first step.
 
 3. Ask [Ju](https://github.com/juciccio) to give you access to the pacakge.
-4. Run `npm i @chispahub/spark`
+4. Run `npm i @ecloudhub/spark`
 
 <br />
 
 ## Folder Structure
 
-- **/src:** @ChispaHub/spark's raw code.
+- **/src:** @ecloudHub/spark's raw code.
 
 <br />
 
 ## Spark in use
 
-- [@ChispaHub/Pyro](https://github.com/ChispaHub/pyro) Our starter kit.
+- [@ecloudHub/Pyro](https://github.com/ecloudHub/pyro) Our starter kit.
 
 <br />
 
@@ -278,6 +278,6 @@ const isDesktop = useMediaQuery(`(min-width: 992px)`);
 
 ## Authors
 
-This toolkit is curated and maintained by the Chispa Lab team:
+This toolkit is curated and maintained by the ecloud team:
 
-- Julian Ciccioli ([juciccio](https://www.linkedin.com/in/juciccio/)) – [Chispa Lab](https://chispalab.com)
+- Julian Ciccioli ([juciccio](https://www.linkedin.com/in/juciccio/)) – [ecloud](https://ecloud.agency)

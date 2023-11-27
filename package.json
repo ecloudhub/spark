@@ -1,14 +1,14 @@
 {
-  "name": "@chispahub/spark",
+  "name": "@ecloudhub/spark",
   "version": "0.7.1",
   "description": "The spark that will light your projects",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/chispahub"
+    "registry": "https://npm.pkg.github.com/ecloudhub"
   },
   "scripts": {
     "rollup": "rollup -c"
   },
-  "author": "Chispa Lab",
+  "author": "ecloud",
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
