@@ -74,7 +74,13 @@ export default function Home() {
 
       <section className="section section--reveal">
         <h1>Text reveal</h1>
-        <TextReveal>
+        <div style={{ maxWidth: "80rem", margin: "0 auto", fontSize: '70px', fontWeight: '300', textAlign: 'center' }}>
+          <TextReveal>
+            El primer sistema SAAS de referidos pensado 100% en negocios que
+            impacten en el ecosistema digital de <strong>LATAM.</strong>
+          </TextReveal>
+        </div>
+        {/* <TextReveal>
           <h2>This text will reveal itself in a fancy way</h2>
         </TextReveal>
         <TextReveal>
@@ -85,7 +91,7 @@ export default function Home() {
             This text will reveal itself in a fancy way lorem ipsum dolor sit
             amet
           </TextReveal>
-        </div>
+        </div> */}
       </section>
 
       <section className="section section--reader" ref={textTriggerRef}>

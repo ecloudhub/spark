@@ -4,7 +4,11 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { TextReveal as TextRevealProps } from "../../types/text";
 import SplitType from "split-type";
 import "./TextReveal.scss";
-import { useIsomorphicLayoutEffect, useMediaQuery, useWindowSize } from "../../hooks";
+import {
+  useIsomorphicLayoutEffect,
+  useMediaQuery,
+  useWindowSize,
+} from "../../hooks";
 import { breakpoints } from "../../config/variables";
 
 export default function TextReveal({
@@ -25,47 +29,64 @@ export default function TextReveal({
   };
 
   useIsomorphicLayoutEffect(() => {
-    splitLines();
+    let ctx: any = null;
+    let timer: any = null;
 
     gsap.registerPlugin(ScrollTrigger);
 
-    const lines = ref.current?.querySelectorAll(".line");
-    const textTimeline = gsap.timeline();
+    ctx = gsap.context(() => {
+      timer = setTimeout(() => {
+        splitLines();
 
-    ScrollTrigger.create({
-      // main scroll trigger
-      trigger: ref.current,
-      start: start,
-      animation: textTimeline,
-    });
+        const lines = ref.current?.querySelectorAll(".line");
+        const textTimeline = gsap.timeline();
 
-    if (lines) {
-      lines.forEach((line) => {
-        const wrapper = document.createElement("div");
+        ScrollTrigger.create({
+          // main scroll trigger
+          trigger: ref.current,
+          start: start,
+          animation: textTimeline,
+        });
 
-        wrapper.classList.add("spark-text-reveal__container");
-        wrapper.append(line);
+        if (lines) {
+          lines.forEach((line) => {
+            const wrapper = document.createElement("div");
 
-        ref?.current?.append(wrapper);
+            wrapper.classList.add("spark-text-reveal__container");
+            wrapper.append(line);
 
-        line.classList.add("spark-text-reveal__content");
+            ref?.current?.append(wrapper);
 
-        textTimeline.to(
-          line,
-          {
-            duration: duration,
-            y: 0,
-            rotate: 0,
-            ease: "expo.out",
-            delay: delay,
-          },
-          ">-90%"
-        );
-      });
-    }
+            line.classList.add("spark-text-reveal__content");
+
+            textTimeline.to(
+              line,
+              {
+                duration: duration,
+                y: 0,
+                rotate: 0,
+                ease: "expo.out",
+                delay: delay,
+              },
+              ">-90%"
+            );
+          });
+        }
+      }, 500);
+    }, ref);
 
     return () => {
       ScrollTrigger.killAll();
+
+      if (ctx) {
+        ctx.revert();
+        ctx = null;
+      }
+
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
     };
   }, [windowWidth, isDesktop]);
 
