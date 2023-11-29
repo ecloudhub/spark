@@ -4,7 +4,8 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { TextReveal as TextRevealProps } from "../../types/text";
 import SplitType from "split-type";
 import "./TextReveal.scss";
-import { useIsomorphicLayoutEffect } from "../../hooks";
+import { useIsomorphicLayoutEffect, useMediaQuery, useWindowSize } from "../../hooks";
+import { breakpoints } from "../../config/variables";
 
 export default function TextReveal({
   children,
@@ -13,6 +14,8 @@ export default function TextReveal({
   delay = 0,
 }: TextRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
+  const { windowWidth } = useWindowSize();
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
 
   const splitLines = () => {
     SplitType.create(ref.current ?? "", {
@@ -23,7 +26,7 @@ export default function TextReveal({
 
   useIsomorphicLayoutEffect(() => {
     splitLines();
-    
+
     gsap.registerPlugin(ScrollTrigger);
 
     const lines = ref.current?.querySelectorAll(".line");
@@ -64,7 +67,7 @@ export default function TextReveal({
     return () => {
       ScrollTrigger.killAll();
     };
-  }, []);
+  }, [windowWidth, isDesktop]);
 
   return (
     <div className="spark-text-reveal" ref={ref}>
