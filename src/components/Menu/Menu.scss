@@ -25,6 +25,7 @@ $space: 2rem;
   &__body {
     border-radius: 2.625rem;
     background: rgba(245, 245, 245, 0.8);
+    -webkit-backdrop-filter: blur(0.4rem);
     backdrop-filter: blur(0.4rem);
     box-sizing: border-box;
     transform: translateZ(0);
