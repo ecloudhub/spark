@@ -1,6 +1,6 @@
 {
   "name": "@ecloudhub/spark",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "description": "The spark that will light your projects",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/ecloudhub"

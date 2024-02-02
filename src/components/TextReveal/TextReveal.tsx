@@ -15,6 +15,8 @@ export default function TextReveal({
   children,
   duration = 3,
   start = "top 90%",
+  scrub = false,
+  toggleActions = "play none none none",
   delay = 0,
 }: TextRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -45,6 +47,8 @@ export default function TextReveal({
           // main scroll trigger
           trigger: ref.current,
           start: start,
+          toggleActions,
+          scrub,
           animation: textTimeline,
         });
 

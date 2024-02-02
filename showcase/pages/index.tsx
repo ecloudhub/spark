@@ -90,35 +90,32 @@ export default function Home() {
 
       <section className="section section--reader" ref={textTriggerRef}>
         <div className="section--reader__content">
-          <h1>Text Reader pinned</h1>
+          <h1>Text Reader</h1>
           <TextReader
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-          condimentum felis in lectus interdum imperdiet. Proin placerat sodales
-          dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
-          ac vehicula eros semper quis. Proin placerat sodales
-          dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
-          ac vehicula eros semper quis."
+              condimentum felis in lectus interdum imperdiet. Proin placerat sodales
+              dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
+              ac vehicula eros semper quis. Proin placerat sodales
+              dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
+              ac vehicula eros semper quis."
             pinRef={textTriggerRef}
             start="top 126px"
           />
         </div>
       </section>
 
-      <section
-        className="section section--reader py"
-        ref={textWithMaskTriggerRef}
-      >
+      <section className="section section--reader py" ref={textWithMaskTriggerRef}>
         <div className="section--reader__content">
           <h1>Text Reader with mask</h1>
           <TextReader
             text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-          condimentum felis in lectus interdum imperdiet. Proin placerat sodales
-          dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
-          ac vehicula eros semper quis. Proin placerat sodales
-          dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
-          ac vehicula eros semper quis."
+              condimentum felis in lectus interdum imperdiet. Proin placerat sodales
+              dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
+              ac vehicula eros semper quis. Proin placerat sodales
+              dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
+              ac vehicula eros semper quis."
             pinRef={textWithMaskTriggerRef}
-            start="top center"
+            start="top 126px"
             withMask
           />
         </div>

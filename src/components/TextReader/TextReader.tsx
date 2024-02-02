@@ -13,8 +13,10 @@ import {
 
 export default function TextReader({
   text,
+  pin = true,
   pinRef,
   start = "top 30%",
+  end = "bottom top",
   responsive = true,
   withMask = false,
   onComplete,
@@ -62,30 +64,31 @@ export default function TextReader({
       ctx = gsap.context(() => {
         if (withMask) {
           const lines = textRef.current?.querySelectorAll(".line");
+          const timeline = gsap.timeline();
 
-          lines?.forEach((line, index) => {
-            const timeline = gsap.timeline();
+          lines?.forEach((line) => {
             const mask = line.querySelector(".line-mask");
 
-            timeline.to(mask, { x: "100%" }, "mask");
+            timeline.to(mask, { x: "100%" });
+          });
 
-            ScrollTrigger.create({
-              trigger: line,
-              start: start,
-              end: () => `+=${line.clientHeight + 100}`,
-              scrub: 1,
-              animation: timeline,
-              invalidateOnRefresh: true,
-              onUpdate: ({ progress, direction }) => {
-                if (!onComplete) return;
+          ScrollTrigger.create({
+            trigger: lines,
+            start: start,
+            end: end,
+            pin: pin ? (pinRef.current ? pinRef.current : true) : false,
+            scrub: 1,
+            animation: timeline,
+            invalidateOnRefresh: true,
+            onUpdate: ({ progress, direction }) => {
+              if (!onComplete) return;
 
-                if (progress >= 1 && direction === 1) {
-                  onComplete(true);
-                } else {
-                  onComplete(false);
-                }
-              },
-            });
+              if (progress >= 1 && direction === 1) {
+                onComplete(true);
+              } else {
+                onComplete(false);
+              }
+            },
           });
         } else {
           const words = textRef.current?.querySelectorAll(".word");
@@ -98,7 +101,7 @@ export default function TextReader({
           ScrollTrigger.create({
             trigger: textRef.current,
             start: start,
-            pin: pinRef.current ? pinRef.current : true,
+            pin: pin ? (pinRef.current ? pinRef.current : true) : false,
             scrub: 1,
             animation: timeline,
             invalidateOnRefresh: true,
