@@ -104,7 +104,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section--reader py" ref={textWithMaskTriggerRef}>
+      <section
+        className="section section--reader py"
+        ref={textWithMaskTriggerRef}
+      >
         <div className="section--reader__content">
           <h1>Text Reader with mask</h1>
           <TextReader

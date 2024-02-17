@@ -72,6 +72,8 @@ export default function TextReader({
             timeline.to(mask, { x: "100%" });
           });
 
+          timeline.to(textRef.current, { z: 0, duration: 1 });
+
           ScrollTrigger.create({
             trigger: lines,
             start: start,
@@ -98,9 +100,12 @@ export default function TextReader({
             timeline.to(word, { opacity: 1 });
           });
 
+          timeline.to(textRef.current, { z: 0, duration: 1 });
+
           ScrollTrigger.create({
             trigger: textRef.current,
             start: start,
+            end: end,
             pin: pin ? (pinRef.current ? pinRef.current : true) : false,
             scrub: 1,
             animation: timeline,
