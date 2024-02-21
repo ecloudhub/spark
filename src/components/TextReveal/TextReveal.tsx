@@ -43,6 +43,8 @@ export default function TextReveal({
         const lines = ref.current?.querySelectorAll(".line");
         const textTimeline = gsap.timeline();
 
+        textTimeline.to(ref.current, { opacity: 1, duration: 0 });
+
         ScrollTrigger.create({
           // main scroll trigger
           trigger: ref.current,
