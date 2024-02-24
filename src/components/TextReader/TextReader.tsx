@@ -47,7 +47,7 @@ export default function TextReader({
 
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
 
-  const { windowWidth, windowHeight } = useWindowSize();
+  const { windowWidth } = useWindowSize();
 
   useIsomorphicLayoutEffect(() => {
     let ctx: any = null;
@@ -129,7 +129,7 @@ export default function TextReader({
         ctx.revert();
       }
     };
-  }, [isDesktop, pinRef.current, windowWidth, windowHeight]);
+  }, [isDesktop, pinRef.current, windowWidth]);
 
   return (
     <p
