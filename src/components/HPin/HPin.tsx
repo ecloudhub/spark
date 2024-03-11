@@ -1,10 +1,11 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { HPin as HPinProps } from "../../types/pin";
 import { breakpoints } from "../../config/variables";
 import "./HPin.scss";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import {
+  useDocumentHeight,
   useIsomorphicLayoutEffect,
   useMediaQuery,
   useWindowSize,
@@ -13,29 +14,25 @@ import {
 export default function HPin({
   children,
   triggerRef,
+  pin = true,
   scrub = 0.3,
   start = "center center",
   end = "bottom top",
+  markers = false,
   spacing = "1rem",
   sideSpacing = "0",
   startPos = "20%",
   endPos = 1.1,
 }: HPinProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [documentHeight, setDocumentHeight] = useState<number>(0);
   const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
   const { windowWidth } = useWindowSize();
+  const docuHeight = useDocumentHeight();
 
   useIsomorphicLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (!isDesktop) return;
-
-    const docuElement = document.documentElement;
-    const resizeObserver = new ResizeObserver(() => {
-      setDocumentHeight(docuElement.scrollHeight);
-    });
-    resizeObserver.observe(docuElement);
 
     const ctx = gsap.context(() => {
       const timeline = gsap.timeline();
@@ -54,20 +51,19 @@ export default function HPin({
           : containerRef.current,
         start: start,
         end: end,
-        pin: true,
+        pin: pin,
         scrub: scrub,
         animation: timeline,
-        invalidateOnRefresh: true,
+        markers: markers,
       });
     }, containerRef);
 
     return () => {
       if (ctx) {
         ctx.revert();
-        resizeObserver.disconnect();
       }
     };
-  }, [isDesktop, windowWidth, documentHeight]);
+  }, [isDesktop, windowWidth, docuHeight]);
 
   return (
     <div

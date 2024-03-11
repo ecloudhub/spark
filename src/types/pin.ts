@@ -11,6 +11,10 @@ export interface HPin {
   start?: string | number | StartEndFunc;
   // String | Number | Function - Determines the ending position of the ScrollTrigger. Default: "bottom top".
   end?: string | number | StartEndFunc;
+  // Pin section. Default: true.
+  pin?: boolean;
+  // Show markers. Default: false.
+  markers?: boolean;
   // Boolean | Number - Links the progress of the animation directly to the scrollbar so it acts like a scrubber. Default: 0.3.
   scrub?: boolean | number;
   // Spacing between each child element. Default: "1rem".

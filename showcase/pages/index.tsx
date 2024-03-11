@@ -126,7 +126,14 @@ export default function Home() {
 
       <section className="section section--pin" ref={hpinContainer}>
         <h1>Horizontal pin</h1>
-        <HPin triggerRef={hpinContainer} start="top top" sideSpacing="1rem">
+        <HPin
+          triggerRef={hpinContainer}
+          start={() => "top center"}
+          end={() => "center top"}
+          scrub={1}
+          sideSpacing="1rem"
+          pin={false}
+        >
           <div className="card" />
           <div className="card" />
           <div className="card" />
