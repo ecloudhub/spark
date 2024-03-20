@@ -22,9 +22,9 @@
       }
     }
 
-    .line-mask {
+    .line {
       @include mobile {
-        display: none;
+        -webkit-text-fill-color: currentColor;
       }
     }
   }

@@ -31,10 +31,12 @@ export default function TextReader({
         types: "lines",
         tagName: "span",
       });
-      text.lines?.forEach((line) => {
-        line.style.backgroundImage = `linear-gradient(to right, ${textColor} 0%, 
-          ${textColor} 50%, ${textColorIdle} 50%, ${textColorIdle} 100%)`;
-      });
+      if (isDesktop || responsive) {
+        text.lines?.forEach((line) => {
+          line.style.backgroundImage = `linear-gradient(to right, ${textColor} 0%, 
+            ${textColor} 50%, ${textColorIdle} 50%, ${textColorIdle} 100%)`;
+        });
+      }
     } else {
       SplitType.create(textRef.current ?? "", {
         types: "words",
