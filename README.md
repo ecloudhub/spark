@@ -151,6 +151,10 @@ Display text gradually as user scroll.
 interface TextReader {
   // The text you want to display gradually.
   text: string;
+  // The color of the text
+  textColor?: string;
+  // The color of the text before being read
+  textColorIdle?: string;
   // Pin section. Default: true.
   pin?: boolean;
   // The element that will be pinned.

@@ -1,4 +1,4 @@
-@import '../../functions';
+@import "../../functions";
 
 .spark-text-reader {
   opacity: 0;
@@ -8,14 +8,11 @@
     opacity: 0;
   }
 
-  .line-mask {
-    display: block;
-    background-color: rgba(255, 255, 255, 0.5);
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 100%;
+  .line {
+    background-size: 200% 100%;
+    background-position: 100% 0%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   &.showOnMobile {

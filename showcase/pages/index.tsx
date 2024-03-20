@@ -119,6 +119,7 @@ export default function Home() {
               ac vehicula eros semper quis."
             pinRef={textWithMaskTriggerRef}
             start="top 126px"
+            end="+=200%"
             withMask
           />
         </div>

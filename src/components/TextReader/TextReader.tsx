@@ -13,6 +13,8 @@ import {
 
 export default function TextReader({
   text,
+  textColor = "black",
+  textColorIdle = "rgba(0, 0, 0, 0.5)",
   pin = true,
   pinRef,
   start = "top 30%",
@@ -30,12 +32,8 @@ export default function TextReader({
         tagName: "span",
       });
       text.lines?.forEach((line) => {
-        let mask = document.createElement("span");
-
-        mask.className = "line-mask";
-
-        line.appendChild(mask);
-        line.style.position = "relative";
+        line.style.backgroundImage = `linear-gradient(to right, ${textColor} 0%, 
+          ${textColor} 50%, ${textColorIdle} 50%, ${textColorIdle} 100%)`;
       });
     } else {
       SplitType.create(textRef.current ?? "", {
@@ -67,9 +65,7 @@ export default function TextReader({
           const timeline = gsap.timeline();
 
           lines?.forEach((line) => {
-            const mask = line.querySelector(".line-mask");
-
-            timeline.to(mask, { x: "100%" });
+            timeline.to(line, { backgroundPosition: "0% 0%" });
           });
 
           timeline.to(textRef.current, { z: 0, duration: 1 });
