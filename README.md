@@ -8,19 +8,7 @@ Spark is our React component library.
 
 ## Installation
 
-1. Create a personal access token [here](https://github.com/settings/tokens) (with `repo` and `write:packages` permissions).
-2. Create or edit -if you already have it- the file `.npmrc` in your home directory like: `~/.npmrc` and add the following information:
-
-```
-registry=https://registry.npmjs.org/
-@ecloudhub:registry=https://npm.pkg.github.com/
-//npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
-```
-
-replacing `YOUR_AUTH_TOKEN` with the token you just created in the first step.
-
-3. Ask [Ju](https://github.com/juciccio) to give you access to the pacakge.
-4. Run `npm i @ecloudhub/spark`
+Run `npm i @ecloudhub/spark`
 
 <br />
 
@@ -32,7 +20,7 @@ replacing `YOUR_AUTH_TOKEN` with the token you just created in the first step.
 
 ## Spark in use
 
-- [@ecloudHub/Pyro](https://github.com/ecloudHub/pyro) Our starter kit.
+- [@ecloudHub/Flame](https://flame-eta.vercel.app/).
 
 <br />
 
