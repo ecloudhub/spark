@@ -43,7 +43,7 @@ export default function TextReveal({
         const lines = ref.current?.querySelectorAll(".line");
         const textTimeline = gsap.timeline();
 
-        textTimeline.to(ref.current, { opacity: 1, duration: 0 });
+        textTimeline.to(ref.current, { opacity: 1, duration: 0, delay: delay });
 
         ScrollTrigger.create({
           // main scroll trigger
@@ -72,7 +72,6 @@ export default function TextReveal({
                 y: 0,
                 rotate: 0,
                 ease: "expo.out",
-                delay: delay,
               },
               ">-90%"
             );
