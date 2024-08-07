@@ -73,7 +73,7 @@ export default function TextReader({
           timeline.to(textRef.current, { z: 0, duration: 1 });
 
           ScrollTrigger.create({
-            trigger: lines,
+            trigger: pinRef.current,
             start: start,
             end: end,
             pin: pin ? (pinRef.current ? pinRef.current : true) : false,
@@ -101,7 +101,7 @@ export default function TextReader({
           timeline.to(textRef.current, { z: 0, duration: 1 });
 
           ScrollTrigger.create({
-            trigger: textRef.current,
+            trigger: pinRef.current,
             start: start,
             end: end,
             pin: pin ? (pinRef.current ? pinRef.current : true) : false,
