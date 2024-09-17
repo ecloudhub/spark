@@ -1,15 +1,19 @@
 {
-  "name": "@ecloudhub/spark",
-  "version": "1.0.2",
+  "name": "ecloud-spark",
+  "version": "1.0.4",
   "description": "The spark that will light your projects",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/ecloudhub"
-  },
   "scripts": {
     "rollup": "rollup -c"
   },
-  "author": "ecloud",
+  "author": {
+    "name": "Ecloud"
+  },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ecloudhub/spark.git"
+  },
+  "homepage": "https://github.com/ecloudhub/spark.git#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",

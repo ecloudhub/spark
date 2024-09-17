@@ -8,7 +8,7 @@ Spark is our React component library.
 
 ## Installation
 
-Run `npm i @ecloudhub/spark`
+Run `npm i ecloud-spark`
 
 <br />
 
