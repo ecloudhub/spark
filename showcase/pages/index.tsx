@@ -99,7 +99,7 @@ export default function Home() {
               dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
               ac vehicula eros semper quis."
             pinRef={textTriggerRef}
-            start="top 126px"
+            start="top 10px"
           />
         </div>
       </section>
@@ -118,7 +118,7 @@ export default function Home() {
               dui, sed auctor quam aliquet eget. Praesent fringilla hendrerit velit,
               ac vehicula eros semper quis."
             pinRef={textWithMaskTriggerRef}
-            start="top 126px"
+            start="100px top"
             end="+=200%"
             withMask
           />

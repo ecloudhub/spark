@@ -1,6 +1,6 @@
 {
   "name": "ecloud-spark",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "The spark that will light your projects",
   "scripts": {
     "rollup": "rollup -c"

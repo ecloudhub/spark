@@ -11,6 +11,9 @@
   .line {
     background-size: 200% 100%;
     background-position: 100% 0%;
+  }
+
+  .line:not(.highlight) {
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -22,7 +25,7 @@
       }
     }
 
-    .line {
+    .line:not(.highlight) {
       @include mobile {
         -webkit-text-fill-color: currentColor;
       }

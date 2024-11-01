@@ -35,6 +35,10 @@ export interface TextReader {
   responsive?: boolean;
   // Change the animation style. Default: false.
   withMask?: boolean;
+  // Highlight text as we scroll
+  highlight?: boolean;
+  // The color of the highlight
+  highlightColor?: string;
   // A callback for when the progress has completed.
   onComplete?: Dispatch<SetStateAction<boolean>>;
 }

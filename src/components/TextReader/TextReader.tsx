@@ -21,6 +21,8 @@ export default function TextReader({
   end = "bottom top",
   responsive = true,
   withMask = false,
+  highlight = false,
+  highlightColor = "",
   onComplete,
 }: TextReaderProps) {
   const textRef = useRef<HTMLParagraphElement>(null);
@@ -30,11 +32,16 @@ export default function TextReader({
       const text = SplitType.create(textRef.current ?? "", {
         types: "lines",
         tagName: "span",
+        lineClass: `line ${highlight ? "highlight" : ""}`,
       });
       if (isDesktop || responsive) {
         text.lines?.forEach((line) => {
-          line.style.backgroundImage = `linear-gradient(to right, ${textColor} 0%, 
-            ${textColor} 50%, ${textColorIdle} 50%, ${textColorIdle} 100%)`;
+          line.style.backgroundImage = `linear-gradient(to right, ${
+            highlight ? highlightColor : textColor
+          } 0%, 
+            ${
+              highlight ? highlightColor : textColor
+            } 50%, ${textColorIdle} 50%, ${textColorIdle} 100%)`;
         });
       }
     } else {
@@ -63,10 +70,16 @@ export default function TextReader({
 
       ctx = gsap.context(() => {
         if (withMask) {
-          const lines = textRef.current?.querySelectorAll(".line");
+          const lines = textRef.current?.querySelectorAll<HTMLElement>(".line");
           const timeline = gsap.timeline();
 
           lines?.forEach((line) => {
+            if (highlight) {
+              line.style.display = "inline-block";
+              line.style.width = "auto";
+              line.style.color = textColor;
+            }
+
             timeline.to(line, { backgroundPosition: "0% 0%" });
           });
 
