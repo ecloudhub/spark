@@ -8,19 +8,47 @@ Spark is our React component library.
 
 ## Installation
 
-Run `npm i ecloud-spark`
+```bash
+npm i ecloud-spark
+```
+
+### Peer Dependencies
+
+This library requires the following peer dependencies:
+
+```bash
+npm i react framer-motion gsap lodash react-fast-marquee split-type
+```
+
+| Package | Version |
+|---------|---------|
+| react | ^18.2.0 \|\| ^19.0.0 |
+| framer-motion | ^10.0.0 \|\| ^11.0.0 \|\| ^12.0.0 |
+| gsap | ^3.12.0 |
+| lodash | ^4.17.0 |
+| react-fast-marquee | ^1.6.0 |
+| split-type | ^0.3.0 |
 
 <br />
 
 ## Folder Structure
 
-- **/src:** @ecloudHub/spark's raw code.
+- **/src:** ecloud-spark's source code
+- **/showcase:** Next.js demo app with live examples
 
 <br />
 
-## Spark in use
+## Showcase
 
-- [@ecloudHub/Flame](https://flame-eta.vercel.app/).
+A Next.js app is included to preview all components in action.
+
+```bash
+cd showcase
+npm install
+npm run dev
+```
+
+Then open [http://localhost:3000](http://localhost:3000) to see the demos.
 
 <br />
 
@@ -270,12 +298,20 @@ It returns window width and height. The values are updated on window `change` an
 const { windowWidth, windowHeight } = useWindowSize();
 ```
 
-### useMediQuery
+### useMediaQuery
 
 A React hook that detects whether a media query is true or false.
 
 ```tsx
 const isDesktop = useMediaQuery(`(min-width: 992px)`);
+```
+
+### useDocumentHeight
+
+Returns the document height. The value is updated on resize.
+
+```tsx
+const documentHeight = useDocumentHeight();
 ```
 
 ## Authors
