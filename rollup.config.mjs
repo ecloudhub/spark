@@ -14,28 +14,35 @@ const packageJson = require("./package.json");
 export default [
   {
     input: "src/index.ts",
-    output: [
-      {
-        file: packageJson.main,
-        format: "cjs",
-        sourcemap: true,
-      },
-      {
-        file: packageJson.module,
-        format: "esm",
-        sourcemap: true,
-      },
-    ],
+    output: {
+      file: packageJson.main,
+      format: "cjs",
+      sourcemap: true,
+    },
     plugins: [
       preserveDirectives(),
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
-      sass({
-        insert: true,
-        api: 'modern',
-      }),
+      typescript({ tsconfig: "./tsconfig.json", declaration: false }),
+      sass({ insert: true, api: 'modern' }),
+      terser(),
+    ],
+  },
+  {
+    input: "src/index.ts",
+    output: {
+      file: packageJson.module,
+      format: "esm",
+      sourcemap: true,
+    },
+    plugins: [
+      preserveDirectives(),
+      peerDepsExternal(),
+      resolve(),
+      commonjs(),
+      typescript({ tsconfig: "./tsconfig.json", declarationDir: "dist/esm", declaration: true }),
+      sass({ insert: true, api: 'modern' }),
       terser(),
     ],
   },
