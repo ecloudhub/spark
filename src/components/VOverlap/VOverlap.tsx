@@ -108,7 +108,7 @@ export default function VOverlap({
     <div className="spark-voverlap" ref={overlapRef}>
       {isDesktop && (
         <div className="spark-voverlap__aside" ref={overlapAsideRef}>
-          {images.length && (
+          {images.length > 0 && (
             <div
               className={`spark-voverlap__img-wrapper ${imagesWrapperClass}`}
             >

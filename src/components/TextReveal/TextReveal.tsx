@@ -81,8 +81,6 @@ export default function TextReveal({
     }, ref);
 
     return () => {
-      ScrollTrigger.killAll();
-
       if (ctx) {
         ctx.revert();
         ctx = null;
