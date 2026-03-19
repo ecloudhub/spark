@@ -1,4 +1,4 @@
-@import '../../functions';
+@use '../../functions' as *;
 
 // this is the padding and the negative position of the body
 $space: 2rem;
