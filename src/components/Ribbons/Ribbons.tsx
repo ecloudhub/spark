@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { Ribbons as RibbonsProps } from "../../types/ribbon";
 import Marquee from "react-fast-marquee";
 import { useWindowSize } from "../../hooks";
@@ -15,13 +15,11 @@ export default function Ribbons({
 }: RibbonsProps) {
   const ribbonsRef = useRef<HTMLDivElement>(null);
   const ribbonRef1 = useRef<HTMLDivElement>(null);
-  const [ribbonHeight, setRibbonHeight] = useState<number>(0);
 
   const { windowHeight, windowWidth } = useWindowSize();
 
   const setRibbonsHeight = () => {
     const boundingBox = ribbonRef1.current?.getBoundingClientRect();
-
     if (ribbonsRef.current) {
       ribbonsRef.current.style.height = boundingBox?.height + "px";
     }
@@ -29,18 +27,19 @@ export default function Ribbons({
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
-      setRibbonHeight(ribbonRef1.current?.offsetHeight ?? 0);
-    });
-    resizeObserver.observe(ribbonRef1?.current as Element);
-
-    if (ribbonsRef.current) {
       setRibbonsHeight();
+    });
+
+    if (ribbonRef1.current) {
+      resizeObserver.observe(ribbonRef1.current);
     }
+
+    setRibbonsHeight();
 
     return () => {
       resizeObserver.disconnect();
     };
-  }, [ribbonHeight, windowHeight, windowWidth]);
+  }, [windowHeight, windowWidth]);
 
   return (
     <div className={`spark-ribbons ${containerClass}`} ref={ribbonsRef}>

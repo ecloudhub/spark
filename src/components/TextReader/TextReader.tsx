@@ -26,16 +26,22 @@ export default function TextReader({
   onComplete,
 }: TextReaderProps) {
   const textRef = useRef<HTMLParagraphElement>(null);
+  const splitRef = useRef<SplitType | null>(null);
+
+  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
+  const { windowWidth } = useWindowSize();
 
   const splitLines = () => {
+    splitRef.current?.revert();
+
     if (withMask) {
-      const text = SplitType.create(textRef.current ?? "", {
+      splitRef.current = SplitType.create(textRef.current ?? "", {
         types: "lines",
         tagName: "span",
         lineClass: `line ${highlight ? "highlight" : ""}`,
       });
       if (isDesktop || responsive) {
-        text.lines?.forEach((line) => {
+        splitRef.current.lines?.forEach((line) => {
           line.style.backgroundImage = `linear-gradient(to right, ${
             highlight ? highlightColor : textColor
           } 0%, 
@@ -45,16 +51,12 @@ export default function TextReader({
         });
       }
     } else {
-      SplitType.create(textRef.current ?? "", {
+      splitRef.current = SplitType.create(textRef.current ?? "", {
         types: "words",
         tagName: "span",
       });
     }
   };
-
-  const isDesktop = useMediaQuery(`(min-width: ${breakpoints.lg}px)`);
-
-  const { windowWidth } = useWindowSize();
 
   useIsomorphicLayoutEffect(() => {
     let ctx: any = null;
@@ -96,11 +98,7 @@ export default function TextReader({
             onUpdate: ({ progress, direction }) => {
               if (!onComplete) return;
 
-              if (progress >= 1 && direction === 1) {
-                onComplete(true);
-              } else {
-                onComplete(false);
-              }
+              onComplete(progress >= 1 && direction === 1);
             },
           });
         } else {
@@ -124,11 +122,7 @@ export default function TextReader({
             onUpdate: ({ progress, direction }) => {
               if (!onComplete) return;
 
-              if (progress >= 1 && direction === 1) {
-                onComplete(true);
-              } else {
-                onComplete(false);
-              }
+              onComplete(progress >= 1 && direction === 1);
             },
           });
         }
@@ -140,7 +134,7 @@ export default function TextReader({
         ctx.revert();
       }
     };
-  }, [isDesktop, pinRef.current, windowWidth]);
+  }, [isDesktop, windowWidth]);
 
   return (
     <p

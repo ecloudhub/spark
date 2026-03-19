@@ -2,9 +2,10 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
-import postcss from "rollup-plugin-postcss";
+import sass from "rollup-plugin-sass";
 import terser from '@rollup/plugin-terser';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import preserveDirectives from 'rollup-preserve-directives';
 
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
@@ -26,12 +27,14 @@ export default [
       },
     ],
     plugins: [
+      preserveDirectives(),
       peerDepsExternal(),
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
-      postcss({
-        plugins: []
+      sass({
+        insert: true,
+        api: 'modern',
       }),
       terser(),
     ],

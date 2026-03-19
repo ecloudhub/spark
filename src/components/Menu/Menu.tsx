@@ -17,7 +17,7 @@ export default function Menu({
 }: MenuProps) {
   const clonedButton = button
     ? React.cloneElement(button, {
-        className: "spark-menu__btn",
+        className: `spark-menu__btn${button.props.className ? ` ${button.props.className}` : ""}`,
       })
     : null;
 

@@ -14,13 +14,11 @@ export const useWindowSize = () => {
     const resizeWatcher = throttle(updateSize, 50);
 
     window.addEventListener("resize", resizeWatcher);
-    window.addEventListener("change", resizeWatcher);
 
     resizeWatcher();
 
     return () => {
       window.removeEventListener("resize", resizeWatcher);
-      window.removeEventListener("change", resizeWatcher);
     };
   }, []);
 

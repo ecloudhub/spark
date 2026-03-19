@@ -32,7 +32,7 @@ export interface VPin {
   // this will be the content at the left such as a title with a text.
   children: React.ReactNode;
   // Each item will be put vertically in a column.
-  items: React.ReactElement;
+  items: React.ReactNode;
   // The space between each item. Default: "1rem".
   itemsSpacing?: string;
   // The minimum space between the children elements and the items. Default: "2rem".

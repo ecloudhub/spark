@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import { ElasticButton as ElasticButtonProps } from "../../types/button";
@@ -19,9 +19,7 @@ const ElasticButton = forwardRef<
 
   const [isHover, setIsHover] = useState<boolean>(false);
 
-  const Icon = () => {
-    return icon;
-  };
+  const Icon = useCallback(() => icon, [icon]);
 
   const clonedButton = button ? (
     React.cloneElement(button)
