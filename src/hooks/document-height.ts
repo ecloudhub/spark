@@ -16,14 +16,11 @@ export const useDocumentHeight = () => {
 
     resizeObserver.observe(docu);
 
-    docu.addEventListener('resize', resizeWatcher);
-    docu.addEventListener('change', resizeWatcher);
-
     resizeWatcher();
 
     return () => {
-      docu.addEventListener('resize', resizeWatcher);
-      docu.addEventListener('change', resizeWatcher);
+      docu.removeEventListener('resize', resizeWatcher);
+      docu.removeEventListener('change', resizeWatcher);
       resizeObserver.disconnect();
     };
   }, []);
